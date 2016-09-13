@@ -12,8 +12,8 @@ $(".text").blur(function(){
 	}
 });
 //登录btn
-$(".login,.loginInterface-text a").click(function(){//点击登录显示登录界面，点击关闭，关闭登录界面
-	$(".loginInterface").slideToggle(200);//slideToggle（）滑动效果，自动判断切换
+$(".login,.loginInterface-text a").click(function(){
+	$(".loginInterface").slideToggle(200);
 });
 
 $(".login-left-btn input").click(function(){
@@ -98,10 +98,10 @@ $(".reg_btn input").eq(0).click(function(){
 			
 			for(var i=0;i<arr.length;i++)
 			{
-				var json=$.parseJSON(arr[i]);//把json的字符串类型的数据转换成json类型的数据
-				var username=json.user;//找到注册表中的用户名
+				var json=$.parseJSON(arr[i]);
+				var username=json.user;
 				//console.log(username);
-				if(user==username)//注册表中的用户名与真正注册的信息对比
+				if(user==username)
 				{
 					alert("用户名已经被注册，请重新输入其他用户名！");
 					return;//跳出函数
@@ -127,7 +127,7 @@ $(".reg_btn input").eq(0).click(function(){
 			});
 			
 		},
-		error:function(XMLHttpRequest,textStatus,errorThrown){//(默认: 自动判断 (xml 或 html)) 请求失败时调用此函数。有以下三个参数：XMLHttpRequest 对象、错误信息、（可选）捕获的异常对象。如果发生了错误，错误信息（第二个参数）除了得到null之外，还可能是"timeout", "error", "notmodified" 和 "parsererror"。
+		error:function(XMLHttpRequest,textStatus,errorThrown){
 	    console.log(XMLHttpRequest,textStatus,errorThrown);
 			alert("服务器忙，请稍后再试！");
 		}
@@ -160,8 +160,7 @@ $.ajax({
 		}
 		$('.publish').append($(frag));
 	},
-	error:function(XMLHttpRequest,textStatus,errorThrown){//(默认: 自动判断 (xml 或 html)) 请求失败时调用此函数。有以下三个参数：XMLHttpRequest 对象、错误信息、（可选）捕获的异常对象。如果发生了错误，错误信息（第二个参数）除了得到null之外，还可能是"timeout", "error", "notmodified" 和 "parsererror"。
-	//console.log(XMLHttpRequest,textStatus,errorThrown);
+	error:function(XMLHttpRequest,textStatus,errorThrown){
 			alert("服务器忙，请稍后再试！");
 		}
 });
@@ -182,7 +181,7 @@ $('.Submit').click(function(){
 			$(".publish").prepend("<li><div class=\"text-title\"><span>匿名网友</span><i>"+json.time+"</i><em>发表</em></div><div class=\"text-content\"><p>"+json.content+"</p></div></li>");
 			$(".textframe").val("");
 		},
-		error:function(XMLHttpRequest,textStatus,errorThrown){//(默认: 自动判断 (xml 或 html)) 请求失败时调用此函数。有以下三个参数：XMLHttpRequest 对象、错误信息、（可选）捕获的异常对象。如果发生了错误，错误信息（第二个参数）除了得到null之外，还可能是"timeout", "error", "notmodified" 和 "parsererror"。
+		error:function(XMLHttpRequest,textStatus,errorThrown){
 			alert("服务器忙，请稍后再试！");
 		}
 	});
